@@ -1,6 +1,7 @@
 1.	Create Dockerfile with below content
 
-```# custom cinder-volume container - having python-3parclient```
+```
+# custom cinder-volume container - having python-3parclient
 
 FROM registry.access.redhat.com/rhosp13/openstack-cinder-volume
 
@@ -12,28 +13,30 @@ LABEL name="rhosp13/openstack-cinder-volume-hpe" \
       release="13" \
       summary="Red Hat OpenStack Platform 13.0 cinder-volume HPE plugin"
 
-```# switch to root and install a custom RPM, etc.```
+# switch to root and install a custom RPM, etc.
 
 USER root
 
-```# install python module python-3parclient(dependent module for HPE 3PAR Cinder driver)```
+# install python module python-3parclient(dependent module for HPE 3PAR Cinder driver)
 
 RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py" --proxy ${http_proxy} && https_proxy=${https_proxy} python get-pip.py && https_proxy=${https_proxy} pip install python-3parclient==4.2.8 && rm get-pip.py
 
-```# switch the container back to the default user```
+# switch the container back to the default user
 
 USER cinder
 
+```
 
 
 2.	Build the docker image
-docker build --build-arg http_proxy=http://16.85.88.10:8080 --build-arg https_proxy=http://16.85.88.10:8080 .
+
+***docker build --build-arg http_proxy=http://16.85.88.10:8080 --build-arg https_proxy=http://16.85.88.10:8080 .***
 
 3.	Run docker images command to verify if the container got created successfully or not 
-docker images
-OUTPUT:
-REPOSITORY                                           TAG                 IMAGE ID                       CREATED             SIZE
-<none>                                               <none>              b497daac7539        21 seconds ago      1.01 GB
+***docker images***
+
+***REPOSITORY                                           TAG                 IMAGE ID                       CREATED             SIZE
+<none>                                               <none>              b497daac7539        21 seconds ago      1.01 GB***
 
 4.	Add tag to the image created
 docker tag <image id> 10.50.9.100:8787/rhosp13/openstack-cinder-volume-hpe:latest
