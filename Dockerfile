@@ -7,7 +7,12 @@ LABEL name="rhosp13/openstack-cinder-volume-hpe" \
       vendor="HPE" \
       version="1.0" \
       release="13" \
-      summary="Red Hat OpenStack Platform 13.0 cinder-volume HPE plugin"
+      summary="Red Hat OpenStack Platform 13.0 cinder-volume HPE plugin" \
+      description="Cinder plugin for HPE 3PAR"
+
+# Add required license as text file in Liceses directory (GPL, MIT, APACHE, Partner End User Agreement, etc)
+RUN mkdir /licenses
+COPY LICENSE /licenses
 
 # switch to root and install a custom RPM, etc.
 USER root
