@@ -1,3 +1,6 @@
+## HPE 3PAR Cinder volume custom container for RHOSP13
+Manual building of a container for HPE 3PAR cinder volume for RHOSP13
+
 1.	Create Dockerfile with below content
 ```
 # custom cinder-volume container - having python-3parclient
@@ -28,18 +31,21 @@ USER cinder
 ```
 
 2.	Build the docker image
-```docker build --build-arg http_proxy=http://16.85.88.10:8080 --build-arg https_proxy=http://16.85.88.10:8080 .```
+```
+docker build --build-arg http_proxy=http://16.85.88.10:8080 --build-arg https_proxy=http://16.85.88.10:8080 .
+```
 
 3.	Run docker images command to verify if the container got created successfully or not
 ```
 docker images
-
 REPOSITORY                                           TAG                 IMAGE ID                       CREATED             SIZE
 <none>                                               <none>              b497daac7539        21 seconds ago      1.01 GB
 ```
 
 4.	Add tag to the image created
-```docker tag <image id> 10.50.9.100:8787/rhosp13/openstack-cinder-volume-hpe:latest```
+```
+docker tag <image id> 10.50.9.100:8787/rhosp13/openstack-cinder-volume-hpe:latest
+```
 
 5.	Run docker images command to verify the repository and tag is correctly updated to the docker image
 ```
