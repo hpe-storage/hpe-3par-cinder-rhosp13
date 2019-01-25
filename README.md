@@ -50,13 +50,14 @@ docker tag <image id> 10.50.9.100:8787/rhosp13/openstack-cinder-volume-hpe:lates
 5.	Run docker images command to verify the repository and tag is correctly updated to the docker image
 ```
 docker images
-OUTPUT:
 REPOSITORY                                                                                                            TAG                                IMAGE ID               CREATED                    SIZE
 10.50.9.100:8787/rhosp13/openstack-cinder-volume-hpe                      latest                             b497daac7539        2 minutes ago       1.01 GB
 ```
 
 6.	Push the container to a local registry
-```docker push 10.50.9.100:8787/rhosp13/openstack-cinder-volume-hpe:latest```
+```
+docker push 10.50.9.100:8787/rhosp13/openstack-cinder-volume-hpe:latest
+```
 
 7.	Created new env file “custom_container_env.yml” under /home/stack/custom_container/ with only the custom container parameter and other backend details
 ```
