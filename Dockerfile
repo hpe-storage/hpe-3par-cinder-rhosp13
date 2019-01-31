@@ -17,8 +17,7 @@ USER root
 RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py" --proxy ${http_proxy} && https_proxy=${https_proxy} python get-pip.py && https_proxy=${https_proxy} pip install python-3parclient==4.2.8 && rm get-pip.py
 
 # Add required license as text file in Liceses directory (GPL, MIT, APACHE, Partner End User Agreement, etc)
-RUN mkdir /licenses
-COPY LICENSE /licenses
+COPY licenses /licenses
 
 # switch the container back to the default user
 USER cinder
