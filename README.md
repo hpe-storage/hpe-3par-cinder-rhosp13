@@ -3,7 +3,7 @@ Manual building of a container for HPE 3PAR cinder volume for RHOSP13
 
 1.	Create Dockerfile
 
-[Dockerfile](hpe-3par-cinder-rhosp13/Dockerfile)
+[Dockerfile](https://github.com/hpe-storage/hpe-3par-cinder-rhosp13/blob/master/Dockerfile)
       
 2.	Build the docker image
 ```
