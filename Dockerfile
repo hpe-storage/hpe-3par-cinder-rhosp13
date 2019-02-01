@@ -4,6 +4,7 @@ FROM registry.access.redhat.com/rhosp13/openstack-cinder-volume
 MAINTAINER HPE
 
 LABEL name="rhosp13/openstack-cinder-volume-hpe" \
+      maintainer="sneha.rai@hpe.com" \
       vendor="HPE" \
       version="1.0" \
       release="13" \
