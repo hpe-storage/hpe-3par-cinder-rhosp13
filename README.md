@@ -1,5 +1,5 @@
-## HPE 3PAR Cinder volume custom container for RHOSP13
-Manual building of a container for HPE 3PAR cinder volume for RHOSP13
+## HPE 3PAR and Primera Cinder volume custom container for RHOSP13
+Manual building of a container for HPE 3PAR and Primera cinder volume for RHOSP13
 
 1.	Create Dockerfile
 
@@ -59,5 +59,5 @@ daded4534677        10.50.9.100:8787/rhosp13/openstack-cinder-api:latest        
 ```
 [root@overcloud-controller-0 log]# docker exec -it 5988651e5bed bash
 ()[root@overcloud-controller-0 /]# pip list | grep 3par
-python-3parclient                4.2.8
+python-3parclient                4.2.11
 ```
