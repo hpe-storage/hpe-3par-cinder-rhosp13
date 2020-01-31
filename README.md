@@ -34,7 +34,7 @@ REPOSITORY                                                                      
 docker push 10.50.9.100:8787/rhosp13/openstack-cinder-volume-hpe:latest
 ```
 
-7.	Created new env file “custom_container_env.yml” under /home/stack/custom_container/ with only the custom container parameter and other backend details
+7.	Create new env file “custom_container_[iscsi|fc].yaml” under /home/stack/custom_container/ with only the custom container parameter and other backend details. Sample files are available in [custom_container](https://github.com/hpe-storage/hpe-3par-cinder-rhosp13/blob/master/custom_container) folder for reference
 ```
 parameter_defaults:
     DockerCinderVolumeImage: 10.50.9.100:8787/rhosp13/openstack-cinder-volume-hpe:latest
@@ -42,7 +42,7 @@ parameter_defaults:
 
 8.	Deploy overcloud
 ```
-openstack overcloud deploy --templates -e /home/stack/templates/node-info.yaml -e /home/stack/templates/overcloud_images.yaml -e /home/stack/custom_container/custom_container_env.yaml -e /usr/share/openstack-tripleo-heat-templates/environments/cinder-backup.yaml --ntp-server 10.38.11.1
+openstack overcloud deploy --templates -e /home/stack/templates/node-info.yaml -e /home/stack/templates/overcloud_images.yaml -e /home/stack/custom_container/custom_container_[iscsi|fc].yaml -e /usr/share/openstack-tripleo-heat-templates/environments/cinder-backup.yaml --ntp-server 10.38.11.1
 ```
 
 9.	SSH to controller node from undercloud and check the docker process for cinder-volume
