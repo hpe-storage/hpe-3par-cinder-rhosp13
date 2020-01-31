@@ -34,7 +34,7 @@ REPOSITORY                                                                      
 docker push 10.50.9.100:8787/rhosp13/openstack-cinder-volume-hpe:latest
 ```
 
-7.	Created new env file “custom_container_env.yml” under /home/stack/custom_container/ with only the custom container parameter and other backend details
+7.	Create new env file “custom_container_env.yml” under /home/stack/custom_container/ with only the custom container parameter and other backend details. Sample files are available in custom_container folder for reference
 ```
 parameter_defaults:
     DockerCinderVolumeImage: 10.50.9.100:8787/rhosp13/openstack-cinder-volume-hpe:latest
